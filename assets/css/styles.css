@@ -2,13 +2,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     color: #003366;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .foreground-image {
@@ -20,7 +20,6 @@ body {
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    border: 2px solid red;
 }
 
 .waves {
@@ -116,4 +115,17 @@ main {
 
 .logout {
     background-color: #003366;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
 }

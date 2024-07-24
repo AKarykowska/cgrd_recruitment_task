@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -15,6 +14,11 @@
         <img src="assets/images/logo.svg" alt="cgrd logo" class="logo">
         </header>
         <main>
+        <?php if (!empty($message)): ?>
+            <div class="alert alert-success">
+                <?php echo $message; ?>
+            </div>
+        <?php endif; ?>
             <section class="news-section">
                 <h2>All News</h2>
                 <?php foreach($entries as $entry): ?>
@@ -30,10 +34,10 @@
             </section>
             <section class="create-news-section">
                 <h2>Create News</h2>
-                <form>
-                    <input type="text" placeholder="Title" class="input">
-                    <textarea placeholder="Description" class="textarea"></textarea>
-                    <button type="submit" class="btn">Create</button>
+                <form method="POST" action="">
+                    <input type="text" name="title" placeholder="Title" class="input">
+                    <textarea name="description" placeholder="Description" class="textarea"></textarea>
+                    <button type="submit" name="create" class="btn">Create</button>
                 </form>
             </section>
             <button class="btn logout">Logout</button>
