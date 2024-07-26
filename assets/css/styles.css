@@ -50,11 +50,11 @@ main {
     text-align: left;
 }
 
-.news-section, .create-news-section {
+.news-section, .news-form-section {
     margin-bottom: 20px;
 }
 
-.news-section h2, .create-news-section h2 {
+.news-section h2, .news-form-section h2 {
     margin-bottom: 10px;
     color: #003366;
 }
@@ -77,6 +77,7 @@ main {
 .actions {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 .icon {
@@ -113,19 +114,36 @@ main {
     cursor: pointer;
 }
 
-.logout {
-    background-color: #003366;
-}
-
 .alert {
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
+    text-align: center;
 }
 
 .alert-success {
     color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
+}
+
+.symbol-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-edit-btn {
+    display: none;
 }

@@ -20,8 +20,7 @@ class EntryController {
     }
 
     public function create($title, $description) {
-        $entry = new Entry();
-        $entry->createEntry($title, $description);
+        $this->model->createEntry($title, $description);
 
         $_SESSION['message'] = 'News was successfully created!';
 
@@ -29,5 +28,21 @@ class EntryController {
         exit();
     }
 
-    // TODO: methods for updating, and deleting entries
+    public function delete($id) {
+        $this->model->deleteEntry($id);
+    
+        $_SESSION['message'] = 'News was deleted!';
+    
+        header('Location: index.php');
+        exit();
+    }
+
+    public function update($title, $description, $id) {
+        $this->model->updateEntry($id, $title, $description);
+
+        $_SESSION['message'] = "News was successfully changed!";
+
+        header('Location: index.php');
+        exit();
+    }
 }

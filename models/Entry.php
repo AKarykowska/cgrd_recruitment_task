@@ -24,5 +24,20 @@ class Entry {
         $this->db->executeStatement($query, $parameters);
     }
 
-    // TODO: methods for creating, updating, and deleting entries
+    public function deleteEntry($id) {
+        $query = "DELETE FROM entries WHERE id = :id";
+        $parameters = [ ':id' => $id ];
+        $this->db->executeStatement($query, $parameters);
+    }
+
+    public function updateEntry($id, $title, $description)
+    {
+        $query = "UPDATE entries SET title = :title, description = :description WHERE id = :id";
+        $parameters = [
+            ':title' => $title,
+            ':description' => $description,
+            ':id' => $id
+        ];
+        $this->db->executeStatement($query, $parameters);
+    }
 }
