@@ -3,8 +3,8 @@
 ## How to run the application
 
 ### Prerequisites
-1. **PHP 8.3:**
-2. **MySQL:**
+1. **PHP 8.3**
+2. **MySQL**
 
 ### Setting up the database
 
