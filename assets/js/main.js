@@ -1,19 +1,19 @@
 // Get the elements
-var editButtons = document.querySelectorAll('.edit-button');
-var formTitle = document.getElementById('news-form-title');
-var idInput = document.getElementById('id-input');
-var titleInput = document.getElementById('title-input');
-var descriptionInput = document.getElementById('description-input');
-var submitButton = document.getElementById('news-form-submit-btn');
-var closeEditButton = document.getElementById('close-edit-btn');
+const editButtons = document.querySelectorAll('.edit-button');
+const formTitle = document.getElementById('news-form-title');
+const idInput = document.getElementById('id-input');
+const titleInput = document.getElementById('title-input');
+const descriptionInput = document.getElementById('description-input');
+const submitButton = document.getElementById('news-form-submit-btn');
+const closeEditButton = document.getElementById('close-edit-btn');
 
 // Handle the click event on the edit buttons
 editButtons.forEach(function(button) {
     button.addEventListener('click', function() {
         // Get the entry data
-        var entryId = this.dataset.id;
-        var entryTitle = this.parentElement.previousElementSibling.previousElementSibling.textContent;
-        var entryDescription = this.parentElement.previousElementSibling.textContent;
+        const entryId = this.dataset.id;
+        const entryTitle = this.parentElement.previousElementSibling.previousElementSibling.textContent;
+        const entryDescription = this.parentElement.previousElementSibling.textContent;
 
         // Update the form
         formTitle.textContent = 'Edit News';

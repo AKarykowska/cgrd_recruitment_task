@@ -1,9 +1,10 @@
 <?php
-require_once 'controllers/EntryController.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once 'controllers/EntryController.php';
 require_once 'controllers/UserController.php';
 
 $entryController = new EntryController();
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $id = $_POST['id'];
-    $entryController->update($title, $description, $id);
+    $entryController->update($id, $title, $description);
 }
 
 $entryController->index();

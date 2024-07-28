@@ -1,34 +1,15 @@
 <?php
-require_once 'database/Database.php';
 
-class User {
-    private $db;
+class User 
+{
+    public int|null $id;
+    public string $username;
+    public string $password;
 
-    public function __construct() {
-        global $db;
-        $this->db = $db;
-    }
-
-    public function createUser($username, $password) {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users (username, password) VALUES (:username, :password)";
-        $parameters = [
-            ':username' => $username,
-            ':password' => $hashedPassword
-        ];
-        $this->db->executeStatement($query, $parameters);
-    }
-
-    public function verifyPassword($username, $password) {
-        $query = "SELECT password FROM users WHERE username = :username";
-        $parameters = [ ':username' => $username ];
-        $stmt = $this->db->executeStatement($query, $parameters);
-        $user = $stmt->fetch();
-
-        if ($user) {
-            return password_verify($password, $user['password']);
-        }
-
-        return false;
+    public function __construct(int|null $id, string $username, string $password) 
+    {
+        $this->id = $id;
+        $this->username = $username;
+        $this->password = $password;
     }
 }

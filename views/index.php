@@ -23,12 +23,12 @@
                     <h2>All News</h2>
                     <?php foreach($entries as $entry): ?>
                         <div class="news-item">
-                            <span class="news-title"><?php echo $entry['title']; ?></span>
-                            <span class="news-description"><?php echo $entry['description']; ?></span>
+                            <span class="news-title"><?php echo $entry->title; ?></span>
+                            <span class="news-description"><?php echo $entry->description; ?></span>
                             <div class="actions">
-                                <img src="assets/images/pencil.svg" alt="Edit" class="icon edit-button" data-id="<?php echo $entry['id']; ?>">
+                                <img src="assets/images/pencil.svg" alt="Edit" class="icon edit-button" data-id="<?php echo $entry->id; ?>">
                                 <form method="POST" action="index.php">
-                                    <input type="hidden" name="delete" value="<?php echo $entry['id']; ?>">
+                                    <input type="hidden" name="delete" value="<?php echo $entry->id; ?>">
                                     <button type="submit" class="symbol-btn">
                                         <img src="assets/images/close.svg" alt="Delete" class="icon">
                                     </button>

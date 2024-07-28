@@ -1,25 +1,32 @@
 <?php
+
 require_once 'models/Entry.php';
+require_once 'repositories/EntryRepository.php';
 
-class EntryController {
-    private $model;
+class EntryController 
+{
+    private $repository;
 
-    public function __construct() {
-        $this->model = new Entry();
+    public function __construct() 
+    {
+        $this->repository = new EntryRepository();
     }
 
-    public function index() {
+    public function index(): void
+    {
         $message = null;
         if (isset($_SESSION['message'])) {
             $message = $_SESSION['message'];
             unset($_SESSION['message']);
         }
-        $entries = $this->model->getAllEntries();
+        $entries = $this->repository->getAll();
         require 'views/index.php';
     }
 
-    public function create($title, $description) {
-        $this->model->createEntry($title, $description);
+    public function create(string $title, string $description): void
+    {
+        $entry = new Entry(null, $title, $description);
+        $this->repository->save($entry);
 
         $_SESSION['message'] = 'News was successfully created!';
 
@@ -27,8 +34,10 @@ class EntryController {
         exit();
     }
 
-    public function delete($id) {
-        $this->model->deleteEntry($id);
+    public function delete(int $id): void
+    {
+        $entry = $this->repository->get($id);
+        $this->repository->delete($entry);
     
         $_SESSION['message'] = 'News was deleted!';
     
@@ -36,8 +45,12 @@ class EntryController {
         exit();
     }
 
-    public function update($title, $description, $id) {
-        $this->model->updateEntry($id, $title, $description);
+    public function update(int $id, string $title, string $description): void
+    {
+        $entry = $this->repository->get($id);
+        $entry->title = $title;
+        $entry->description = $description;
+        $this->repository->save($entry);
 
         $_SESSION['message'] = "News was successfully changed!";
 
