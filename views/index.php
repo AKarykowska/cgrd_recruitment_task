@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="foreground-image">
-        <img src="assets/images/waves.svg" alt="Foreground Image" class="waves">
-    </div>
+    <div class="foreground-image"></div>
     <div class="container">
         <header>
         <img src="assets/images/logo.svg" alt="cgrd logo" class="logo">
@@ -40,7 +38,7 @@
                     <?php endforeach; ?>
                 </section>
             <?php endif; ?>
-            <section class="news-form-section" id="news-form-section">
+            <section class="form-section" id="news-form-section">
                 <div class="news-form-header">
                     <h2 id="news-form-title">Create News</h2>
                     <img src="assets/images/close.svg" alt="Close" class="icon close-edit-btn" id="close-edit-btn"> 
@@ -52,7 +50,9 @@
                     <button type="submit" name="create" class="btn" id="news-form-submit-btn">Create</button>
                 </form>
             </section>
-            <button class="btn">Logout</button>
+            <form method="post" action="index.php">
+                <button type="submit" name="logout" class="btn">Logout</button>
+            </form>
         </main>
     </div>
     <script src="assets/js/main.js"></script>

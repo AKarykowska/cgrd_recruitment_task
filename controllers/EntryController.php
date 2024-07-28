@@ -5,7 +5,6 @@ class EntryController {
     private $model;
 
     public function __construct() {
-        session_start();
         $this->model = new Entry();
     }
 

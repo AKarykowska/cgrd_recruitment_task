@@ -13,13 +13,15 @@ body {
 
 .foreground-image {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 1;
     pointer-events: none;
+    background: url('../images/waves.svg') no-repeat;
+    background-size: 200% 133.33%;
+    background-position: left center;
 }
 
 .waves {
@@ -50,11 +52,11 @@ main {
     text-align: left;
 }
 
-.news-section, .news-form-section {
+.news-section, .form-section {
     margin-bottom: 20px;
 }
 
-.news-section h2, .news-form-section h2 {
+.news-section h2, .form-section h2 {
     margin-bottom: 10px;
     color: #003366;
 }
@@ -94,6 +96,7 @@ main {
     color: #003366;
     box-sizing: border-box;
     outline: none;
+    background-color: #f9f9f9;
 }
 
 .input:focus, .textarea:focus {
@@ -126,6 +129,12 @@ main {
     color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
 .symbol-btn {
